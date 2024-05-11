@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MKN Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header,
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    form {
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="tel"] {
+      width: calc(95%);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    select {
+      width: calc(100% - 22px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto; /* Center the button */
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>MKN Solutions</h1>
+  </header>
+
+  <!-- FORM -->
+  <div class="container">
+    <form action="submit_form.php" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="phone">Phone Number:</label>
+      <input id="phone" type="tel" name="phone" required>
+
+      <label for="productType">Type of Product:</label>
+      <select id="productType" name="productType" required>
+        <option value="">Select a product type</option>
+        <option value="Coconut Fiber Products">Coconut Fiber Products</option>
+        <option value="Coco Peat Products">Coco Peat Products</option>
+        <option value="Rice Varieties">Rice Varieties</option>
+        <option value="Coconut-based Products">Coconut-based Products</option>
+        <option value="Organic Spice Blends">Organic Spice Blends</option>
+        <option value="Instant spice Mixes">Instant Spice Mixes</option>
+        <option value="Pulses & Lentils">Pulses & Lentils</option>
+        <option value="Processed Food items">Processed Food items</option>
+        <option value="Customized Agro Products">Customized Agro Products</option>
+      </select>
+
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" required>
+
+      <label for="productSpec">Product Specification:</label>
+      <textarea id="productSpec" name="productSpec" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 MKN Solutions. All Rights Reserved</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script>
+   

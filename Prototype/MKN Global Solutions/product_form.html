@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MKN Solutions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header,
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    form {
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="tel"] {
+      width: calc(150%);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    select {
+      width: calc(100% - 22px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      width: 50%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>MKN Solutions</h1>
+  </header>
+
+  <!-- FORM -->
+  <div class="container">
+    <form action="submit_form.php" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <BR><label for="phone">Mobile Number:</label>
+      <input id="phone" type="tel" name="phone" required>
+<p>
+      <label for="query">Address:</label>
+      <textarea id="query" name="query" rows="4" required></textarea>
+    </p>
+      <p>
+      <label for="category">Product Category:</label>
+      <select id="category" name="category" required onchange="populateProductNames()">
+        <option value="">Select a category</option>
+        <option value="Coconut Fiber Products">Coconut Fiber Products</option>
+        <option value="Coco Peat Products">Coco Peat Products</option>
+        <option value="Rice Varieties">Rice Varieties</option>
+        <option value="Coconut-based Products">Coconut-based Products</option>
+        <option value="Organic Spice Blends">Organic Spice Blends</option>
+        <option value="Instant spice Mixes">Instant Spice Mixes</option>
+        <option value="Pulses & Lentils">Pulses & Lentils</option>
+        <option value="Processed Food items">Processed Food items</option>
+        <option value="Customized Agro Products">Customized Agro Products</option>
+      </select>
+     
+      <label for="productName">Product Name:</label>
+      <select id="productName" name="productName" required>
+        <!-- Options will be populated dynamically -->
+      </select>
+
+      <label for="query">Additional Commands:</label>
+      <textarea id="query" name="query" rows="4" required></textarea>
+
+    </p>
+
+      <button type="submit" style="display: block; margin: 0 auto;">Order Now!</button>
+
+   
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 MKN Solutions. All Rights Reserved</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+
+    function populateProductNames() {
+      const categorySelect = document.getElementById("category");
+      const productNameSelect = document.getElementById("productName");
+      const selectedCategory = categorySelect.value;
+
+      productNameSelect.innerHTML = "";
+
+      switch (selectedCategory) {
+        case "Coconut Fiber Products":
+          productNameSelect.innerHTML = `
+            <option value="Coir Fiber Rolls">Coir Fiber Rolls</option>
+            <option value="Coir Fiber Mats">Coir Fiber Mats</option>
+            <option value=" Coir Fiber Brushes">Coir Fiber Brushes</option>
+          `;
+          break;
+        case "Coco Peat Products":
+          productNameSelect.innerHTML = `
+            <option value="Coco Peat Blocks">Coco Peat Blocks</option>
+            <option value="Coco Peat Grow Bags">Coco Peat Grow Bags</option>
+            <option value="Coco Peat Discs/Pellets">Coco Peat Discs/Pellets</option>
+          `;
+          break;
+          case "Rice Varieties":
+          productNameSelect.innerHTML = `
+            <option value="Basmati Rice">Basmati Rice</option>
+            <option value="Ponni Rice">Ponni Rice</option>
+            <option value="Matta Rice">Matta Rice</option>
+            <option value="Sona Masoori Rice">Sona Masoori Rice</option>
+            <option value="Organic rice">Organic rice</option>
+          `;
+          break;
+          case "Coconut-based Products":
+          productNameSelect.innerHTML = `
+            <option value="Virgin Coconut Oil">Virgin Coconut Oil</option>
+            <option value="Coconut Milk">Coconut Milk</option>
+            <option value="Desiccated Coconut">Desiccated Coconut</option>
+            <option value="Coconut Flour">Coconut Flour</option>
+            <option value="Coconut Sugar">Coconut Sugar</option>
+          `;
+          break;
+          case "Organic Spice Blends":
+          productNameSelect.innerHTML = `
+            <option value="Organic Turmeric Powder">Organic Turmeric Powder</option>
+            <option value="Organic Cardamom Pods">Organic Cardamom Pods</option>
+            <option value="Organic Black Pepper">Organic Black Pepper</option>
+            <option value="Organic Cinnamon Sticks">Organic Cinnamon Sticks</option>
+            <option value="Organic Coriander Seeds">Organic Coriander Seeds</option>
+          `;
+          break;
+          case "Instant spice Mixes":
+          productNameSelect.innerHTML = `
+            <option value="Curry Powder Mix">Curry Powder Mix</option>
+            <option value="Masala Mix">Masala Mix</option>
+            <option value="Puliogare Mix">Puliogare Mix</option>
+            <option value="Garam Masala Blend">Garam Masala Blend</option>
+            <option value="Biryani Masala Mix">Biryani Masala Mix</option>
+          `;
+          break;
+          case "Pulses & Lentils":
+          productNameSelect.innerHTML = `
+            <option value="Chickpeas">Chickpeas</option>
+            <option value="Red Lentils">Red Lentils</option>
+            <option value="Pigeon Peas">Pigeon Peas</option>
+            <option value="Green Lentils">Green Lentils</option>
+            <option value="Black Lentils">Black Lentils</option>
+          `;
+          break;
+          case "Processed Food items":
+          productNameSelect.innerHTML = `
+            <option value="Ready-to-Eat Curry Meals">Ready-to-Eat Curry Meals</option>
+            <option value="Banana Chips">Banana Chips</option>
+            <option value="Packaged Snacks">Packaged Snacks</option>
+            <option value="Canned Coconut Milk">Canned Coconut Milk</option>
+            <option value="Murukku">Murukku</option>
+          `;
+          break;
+          case "Customized Agro Products":
+          productNameSelect.innerHTML = `
+            <option value="Customized Coco Peat Grow Bags">Customized Coco Peat Grow Bags</option>
+            <option value="Custom Blend of Organic Spices">Custom Blend of Organic Spices</option>
+            <option value="Customized Rice Blends">Customized Rice Blends</option>
+          `;
+          break;
+
+        default:
+          productNameSelect.innerHTML = `<option value="">Select a product</option>`;
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>
